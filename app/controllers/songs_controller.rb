@@ -1,6 +1,6 @@
 require 'rack-flash'
 
-class SongsController < Sinatra::Base
+class SongsController < ApplicationController
   register Sinatra::ActiveRecordExtension
   set :session_secret, "my_application_secret"
   set :views, Proc.new { File.join(root, "../views/") }
