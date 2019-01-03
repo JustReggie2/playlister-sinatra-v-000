@@ -25,7 +25,7 @@ use Rack::Flash
       song.genre_ids = params[:genres]
       song.genres << Genre.create(name: params[:genre][:name])
     else
-      song.genres << params[:genres].collect {|g| Genre.find(g)}
+      song.genre_ids = params[:genres]
     end
     song.save
 
