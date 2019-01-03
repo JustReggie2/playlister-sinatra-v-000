@@ -43,15 +43,6 @@ use Rack::Flash
     song = Song.find_by_slug(params[:slug])
     song.update(name: params[:song_name])
     song.artist = Artist.find_or_create_by(name: params[:artist_name])
-    # if Artist.find_by(name: params[:artist_name]) != params[:artist_name]
-    #   song.artist = Artist.create(name: params[:artist_name])
-    # else
-    #   song.artist = params[:artist_name]
-    # end
-
-    # if song.genres
-    #   song.genres.clear
-    # end
 
     if !params[:genre][:name].empty?
       song.genre_ids = params[:genres]
