@@ -22,7 +22,7 @@ use Rack::Flash
     song = Song.create(name: params[:song_name])
     song.artist = Artist.find_or_create_by(name: params[:artist_name])
     if !params[:genre][:name].empty?
-      song.genres << params[:genres].collect {|g| Genre.find(g)}
+      song.genre_ids = params[:genres]
       song.genres << Genre.create(name: params[:genre][:name])
     else
       song.genres << params[:genres].collect {|g| Genre.find(g)}
